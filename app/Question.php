@@ -34,7 +34,7 @@ class Question extends Model
         return $this->answers_count;
     }
     public function getStatusAttribute() {
-        return ($this->besta_answer_id > 0 ? "answer-accepted" : ($this->answers > 0 ? "answered" : "unanswered"));
+        return ($this->best_answer_id > 0 ? "answer-accepted" : ($this->answers > 0 ? "answered" : "unanswered"));
     }
 
     public function getCreatedDateAttribute()
