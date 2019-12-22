@@ -13,10 +13,10 @@ class QuestionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {        
+    {
         $questions = Question::with('user')->latest()->paginate(10);
 
-        return view('questions.index', compact('questions'));        
+        return view('questions.index', compact('questions'));
     }
 
     /**
@@ -27,6 +27,9 @@ class QuestionsController extends Controller
     public function create()
     {
         //
+        $question = new Question();
+        return view('questions.create', compact('question'));
+
     }
 
     /**
