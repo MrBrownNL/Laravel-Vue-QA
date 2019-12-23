@@ -27,14 +27,8 @@ class Question extends Model
         return route("questions.show", $this->slug);
     }
 
-    public function getVotesAttribute() {
-        return $this->votes_count;
-    }
-    public function getAnswersAttribute() {
-        return $this->answers_count;
-    }
     public function getStatusAttribute() {
-        return ($this->best_answer_id > 0 ? "answer-accepted" : ($this->answers > 0 ? "answered" : "unanswered"));
+        return ($this->best_answer_id > 0 ? "answer-accepted" : ($this->answers_count > 0 ? "answered" : "unanswered"));
     }
 
     public function getCreatedDateAttribute()
@@ -44,5 +38,12 @@ class Question extends Model
 
     public function getBodyHtmlAttribute() {
         return \Parsedown::instance()->text($this->body);
+    }
+
+    public function answers() {
+        return $this->hasMany(Answer::class);
+        // $question->answers()->count() = OK
+        // $question->answers = NOT ok, because of table column answers -> resolution: changed table column name to answers_name
+
     }
 }
