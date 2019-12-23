@@ -80,6 +80,9 @@ class QuestionsController extends Controller
      */
     public function update(AskQuestionRequest $request, Question $question)
     {
+        if(\Gate::denies('update-question', $question)) {
+            abort(403,"Access denied");
+        }
         $question->update($request->only('title', 'body'));
         return redirect(route('questions.index'))->with('success',"Your question has been updated");
     }
