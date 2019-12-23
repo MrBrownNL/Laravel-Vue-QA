@@ -17917,3 +17917,30 @@ form.form-delete {
   display: block;
 }
 
+.vote-controls span.votes-count {
+  font-size: 25px;
+}
+
+.vote-controls span.favorites-count {
+  font-size: 12px;
+}
+
+.vote-controls a {
+  cursor: pointer;
+  color: #6c757d;
+}
+
+.vote-controls a.off,
+.vote-controls a.off:hover {
+  color: #adb5bd;
+}
+
+.vote-controls a.favorited,
+.vote-controls a.favorited:hover {
+  color: #ffc107;
+}
+
+.vote-controls a.vote-accepted {
+  color: #28a745;
+}
+
