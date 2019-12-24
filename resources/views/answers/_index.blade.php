@@ -13,13 +13,27 @@
                             <a title="This answer is useful" class="vote-up">
                                 <i class="fas fa-caret-up fa-3x"></i>
                             </a>
-                            <span class="votes-count">{{ $answer->votes_count }}</span>
+                             <span class="votes-count">{{ $answer->votes_count }}</span>
                             <a title="This answer is not useful" class="vote-down off">
                                 <i class="fas fa-caret-down fa-3x"></i>
                             </a>
-                            <a title="Mark this answer as best answer" class="{{ $answer->status }} mt-3">
-                                <i class="fas fa-check fa-2x"></i>
-                            </a>
+                            @can('accept', $answer)
+                                <a title="Mark this answer as best answer"
+                                   class="{{ $answer->status }} mt-3"
+                                   onclick="event.preventDefault(); document.getElementById('accept-answer-{{ $answer->id }}').submit()">
+                                    <i class="fas fa-check fa-2x"></i>
+                                </a>
+                                <form style="display: none;" id="accept-answer-{{ $answer->id }}" action="{{ route('answers.accept', $answer->id) }}" method="POST">
+                                    @csrf
+                                </form>
+                            @else
+                                @if($answer->is_best)
+                                    <a title="The question owner accepted this answer as the best answer"
+                                       class="{{ $answer->status }} mt-3">
+                                       <i class="fas fa-check fa-2x"></i>
+                                    </a>
+                                @endif
+                            @endcan
                         </div>
                         <div class="media-body">
                             {!! $answer->body_html !!}

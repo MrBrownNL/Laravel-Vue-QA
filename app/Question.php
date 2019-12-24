@@ -46,4 +46,9 @@ class Question extends Model
         // $question->answers = NOT ok, because of table column answers -> resolution: changed table column name to answers_name
 
     }
+
+    public function acceptBestAnswer($answer) {
+        $this->best_answer_id = $answer->id;
+        $this->save();
+    }
 }
