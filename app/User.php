@@ -69,8 +69,8 @@ class User extends Authenticatable
         }
 
         $question->load('votes');
-        $downVotes = (int)$question->votes()->downVotes->sum('vote');
-        $upVotes = (int)$question->votes()->upVotes->sum('vote');
+        $downVotes = (int)$question->downVotes()->sum('vote');
+        $upVotes = (int)$question->upVotes()->sum('vote');
 
         $question->votes_count = $upVotes + $downVotes;
         $question->save();
