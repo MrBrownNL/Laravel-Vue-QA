@@ -67,4 +67,8 @@ class Question extends Model
     public function getFavoritesCountAttribute() {
         return $this->favorites->count();
     }
+
+    public function votes() {
+        return $this->morphedToMany(User::class, 'votable');
+    }
 }

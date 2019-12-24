@@ -51,4 +51,13 @@ class User extends Authenticatable
     public function favorites() {
         return $this->belongsToMany(Question::class, 'favorites')->withTimestamps(); //, 'user_id', 'question_id'); // can be omitted if following convention
     }
+
+    public function voteQuestions() {
+        return $this->morphedByMany(Question::class, 'votable');
+    }
+
+    public function voteAnswers() {
+        return $this->morphedByMany(Answer::class, 'votable');
+
+    }
 }
