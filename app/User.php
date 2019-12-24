@@ -49,6 +49,6 @@ class User extends Authenticatable
     }
 
     public function favorites() {
-        return $this->belongsToMany(Question::class, 'favorites'); //, 'user_id', 'question_id'); // can be omitted if following convention
+        return $this->belongsToMany(Question::class, 'favorites')->withTimestamps(); //, 'user_id', 'question_id'); // can be omitted if following convention
     }
 }
