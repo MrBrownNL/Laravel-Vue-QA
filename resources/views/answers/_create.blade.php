@@ -11,7 +11,9 @@
                     <div class="form-group">
                         <textarea class="form-control {{ $errors->has('body') ? 'is-invalid' : '' }}" rows="7" name="body"></textarea>
                         @if($errors->has('body'))
-                            <div class="invalid-feedback"><strong>{{ $errors->first('body') }}</strong></div>
+                            <div class="invalid-feedback">
+                                <strong>{{ $errors->first('body') }}</strong>
+                            </div>
                         @endif
                     </div>
                     <div class="form-group">
