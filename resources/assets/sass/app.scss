@@ -68,10 +68,10 @@ form.form-delete {
 
     span {
         &.votes-count {
-            font-size: 25px;
+            font-size:25px;
         }
         &.favorites-count {
-            font-size: 12px;
+            font-size:12px;
         }
     }
 
@@ -79,20 +79,19 @@ form.form-delete {
         cursor: pointer;
         color: $gray-600;
 
-        .off, .off:hover {
+        &.off, &.off:hover {
             color: $gray-500;
         }
 
-        //&.favorite {
-            .favorited, .favorited:hover {
+        &.favorite {
+            &.favorited, &.favorited:hover {
                 color: $warning;
             }
-        //}
+        }
+
         &.vote-accepted {
-            color: $success;
+            color: $green;
         }
     }
-
-
 }
 
