@@ -48,7 +48,7 @@ class Question extends Model
     }
 
     public function answers() {
-        return $this->hasMany(Answer::class);
+        return $this->hasMany(Answer::class)->orderBy('votes_count', 'DESC');
         // $question->answers()->count() = OK
         // $question->answers = NOT ok, because of table column answers -> resolution: changed table column name to answers_name
 

@@ -25,6 +25,10 @@ class RouteServiceProvider extends ServiceProvider
     {
         // provide as much info as you can to limit the amount of queries!
         Route::bind('slug', function($slug) {
+//            return Question::with(['answers.user', 'answers'=>function($query) {
+//                $query->orderBy('votes_count', 'DESC');
+//                }])->where('slug',$slug)->first() ?? abort(404);
+           // Above is replace by Questions->answers() order by
             return Question::with('answers.user')->where('slug',$slug)->first() ?? abort(404);
         });
 
