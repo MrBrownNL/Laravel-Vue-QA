@@ -49725,7 +49725,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49746,23 +49746,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             body: this.answer.body,
             bodyHtml: this.answer.body_html,
             id: this.answer.id,
-            questionId: this.answer.question_id
+            questionId: this.answer.question_id,
+            beforeEditCache: null
         };
     },
 
 
     methods: {
+        edit: function edit() {
+            this.beforeEditCache = this.body;
+            this.editing = true;
+        },
+        cancel: function cancel() {
+            this.body = this.beforeEditCache;
+            this.editing = false;
+        },
         update: function update() {
             var _this = this;
 
             axios.patch("/questions/" + this.questionId + "/answers/" + this.id, {
                 body: this.body
             }).then(function (res) {
-                console.log(res);
                 _this.editing = false;
+                _this.bodyHtml = res.data.body_html;
             }).catch(function (err) {
-                console.log(err);
+                alert(err.response.data.message);
             });
+        }
+    },
+
+    computed: {
+        isInvalid: function isInvalid() {
+            return this.body.length < 10;
         }
     }
 });

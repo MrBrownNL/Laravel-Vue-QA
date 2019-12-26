@@ -10,10 +10,10 @@
         <div class="media-body">
             <form v-if="editing" @submit.prevent="update">
                 <div class="form-group">
-                    <textarea v-model="body" rows="10" class="form-control"></textarea>
+                    <textarea v-model="body" rows="10" class="form-control" required></textarea>
                 </div>
-                <button @click="editing = false">Update</button>
-                <button @click="editing = false">Cancel</button>
+                <button class="btn btn-primary" :disabled="isInvalid">Update</button>
+                <button class="btn btn-outline-secondary" @click="cancel" type="button">Cancel</button>
             </form>
             <div v-else>
                 <div v-html="bodyHtml"></div>
@@ -21,7 +21,7 @@
                     <div class="col-4">
                         <div class="ml-auto">
                             @can('update', $answer)
-                                <a @click.prevent="editing = true" class="btn btn-outline-info btn-sm">Edit</a>
+                                <a @click.prevent="edit" class="btn btn-outline-info btn-sm">Edit</a>
                             @endcan
                             @can('delete', [$answer, $question])
                                 <form class="form-delete" method="post" action="{{ route('questions.answers.destroy', [$question->id, $answer->id]) }}">
