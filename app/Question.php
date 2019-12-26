@@ -15,7 +15,7 @@ class Question extends Model
         return $this->belongsTo(User::class);
     }
 
-    protected $appends = ['created_date']; // Appends these functions to Vue components
+    protected $appends = ['created_date', 'is_favorited', 'favorites_count']; // Appends these functions to Vue components
 
     public function setTitleAttribute($value)
     {
