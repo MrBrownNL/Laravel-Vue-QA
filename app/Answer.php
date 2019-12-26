@@ -11,7 +11,7 @@ class Answer extends Model
 
     protected $fillable = ['body','user_id'];
 
-    protected $appends = ['created_date'];  // Appends these functions to Vue components
+    protected $appends = ['created_date' ,'body_html'];  // Appends these functions to Vue components
 
     public function question() {
         return $this->belongsTo(Question::class);

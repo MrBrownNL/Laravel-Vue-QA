@@ -16,7 +16,7 @@
 
 <script>
     export default {
-        name: "Userinfo",
+        name: "UserInfo",
         props: ['model', 'label'],
 
         computed: {
