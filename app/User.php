@@ -18,6 +18,8 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+    protected $appends = ['url', 'avatar']; // Appends these functions to Vue components
+
     /**
      * The attributes that should be hidden for arrays.
      *

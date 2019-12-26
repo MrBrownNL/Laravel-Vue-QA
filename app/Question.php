@@ -15,6 +15,8 @@ class Question extends Model
         return $this->belongsTo(User::class);
     }
 
+    protected $appends = ['created_date']; // Appends these functions to Vue components
+
     public function setTitleAttribute($value)
     {
         $this->attributes['title'] = $value;
