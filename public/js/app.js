@@ -50414,7 +50414,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -50443,7 +50443,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             isFavorited: this.model.is_favorited,
             count: this.model.favorites_count,
-            signedIn: true,
             id: this.model.id
         };
     },
@@ -50458,11 +50457,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         endpoint: function endpoint() {
             return '/' + this.label + 's/' + this.id + '/favorites';
+        },
+        signedIn: function signedIn() {
+            return window.Auth.signedIn;
         }
     },
 
     methods: {
         toggle: function toggle() {
+            if (!this.signedIn) {
+                this.$toast.warning("Please login to favorite this question", "Warning", {
+                    timeout: 3000,
+                    position: 'bottomLeft'
+                });
+                return;
+            }
             this.isFavorited ? this.destroy() : this.create();
         },
         destroy: function destroy() {

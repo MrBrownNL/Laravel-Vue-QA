@@ -16,7 +16,6 @@
             return {
                 isFavorited: this.model.is_favorited,
                 count: this.model.favorites_count,
-                signedIn: true,
                 id: this.model.id,
             }
         },
@@ -34,11 +33,22 @@
 
             endpoint() {
                 return `/${this.label}s/${this.id}/favorites`;
+            },
+
+            signedIn() {
+                return window.Auth.signedIn;
             }
         },
 
         methods: {
             toggle () {
+                if (! this.signedIn) {
+                    this.$toast.warning("Please login to favorite this question", "Warning", {
+                        timeout: 3000,
+                        position: 'bottomLeft'
+                    });
+                    return;
+                }
                 this.isFavorited ? this.destroy() : this.create();
             },
 
