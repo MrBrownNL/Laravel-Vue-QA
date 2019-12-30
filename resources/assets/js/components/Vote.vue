@@ -1,13 +1,13 @@
 <template>
     <div class="d-flex flex-column vote-controls">
-        <a :title="title('up')"
+        <a @click.prevent="voteUp" :title="title('up')"
            :class="classes">
             <i class="fas fa-caret-up fa-3x"></i>
         </a>
 
         <span class="votes-count">{{ count }}</span>
 
-        <a :title="title('down')"
+        <a @click.prevent="voteDown" :title="title('down')"
            :class="classes">
             <i class="fas fa-caret-down fa-3x"></i>
         </a>
@@ -30,6 +30,10 @@ import Accept from './Accept.vue';
         computed: {
             classes() {
                 return this.signedIn ? '' : 'off';
+            },
+
+            endpoint() {
+                return `/${this.name}s/${this.id}/vote`
             }
         },
 
@@ -40,7 +44,8 @@ import Accept from './Accept.vue';
 
         data() {
             return {
-                count: this.model.votes_count
+                count: this.model.votes_count,
+                id: this.model.id
             }
         },
 
@@ -52,6 +57,39 @@ import Accept from './Accept.vue';
                 };
 
                 return titles[voteType];
+            },
+            voteUp() {
+                this._vote(1);
+            },
+            voteDown() {
+                this._vote(-1);
+            },
+
+            _vote (vote) {
+                if (!this.assignIn) {
+                    this.$toast.warning(`Please login to vote the ${this.name}`, "Warning", {
+                        timeout: 3000,
+                        position: 'bottomLeft'
+                    });
+
+                    return;
+                }
+                axios.post(this.endpoint,  {
+                    vote
+                })
+                .then(res => {
+                    if (res.data.oldVotesCount !== res.data.votesCount) {
+                        this.$toast.success(res.data.message, "Success", {
+                            timeout: 3000,
+                            position: 'bottomLeft'
+                        });
+                        this.count = res.data.votesCount;
+                    }
+
+                })
+                .catch(err => {
+                    console.log(err)
+                });
             }
         }
 
