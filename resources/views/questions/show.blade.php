@@ -39,8 +39,5 @@
 
         <answers :question="{{ $question }}"></answers>
 
-        @auth
-            @include('answers._create')
-        @endauth
      </div>
 @endsection
