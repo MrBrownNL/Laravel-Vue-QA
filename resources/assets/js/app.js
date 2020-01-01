@@ -26,6 +26,7 @@ Vue.use(Authorization);
 Vue.component('user-info', require('./components/UserInfo.vue'));
 Vue.component('vote', require('./components/Vote.vue'));
 Vue.component('answers', require('./components/Answers.vue'));
+Vue.component('question', require('./components/Question.vue'));
 
 const app = new Vue({
     el: '#app'

@@ -66,7 +66,7 @@ import Accept from './Accept.vue';
             },
 
             _vote (vote) {
-                if (!this.assignIn) {
+                if (!this.signedIn) {
                     this.$toast.warning(`Please login to vote the ${this.name}`, "Warning", {
                         timeout: 3000,
                         position: 'bottomLeft'
