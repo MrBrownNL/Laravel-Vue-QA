@@ -19,7 +19,7 @@ export default {
         restoreFromCache() {},
 
         update() {
-            axios.put(this.endpoint, this.payload)
+            axios.put(this.endpoint, this.payload())
                 .catch(({response}) => {
                     this.$toast.error(response.data.message,"Error", { timeout: 3000});
                 })

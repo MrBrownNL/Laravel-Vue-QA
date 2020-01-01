@@ -51844,7 +51844,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         update: function update() {
             var _this = this;
 
-            axios.put(this.endpoint, this.payload).catch(function (_ref) {
+            axios.put(this.endpoint, this.payload()).catch(function (_ref) {
                 var response = _ref.response;
 
                 _this.$toast.error(response.data.message, "Error", { timeout: 3000 });
