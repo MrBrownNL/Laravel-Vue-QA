@@ -28,7 +28,7 @@ class Question extends Model
 //    }
 
     /**
-     * Accessor accessable by using question->url
+     * Accessor accessible by using question->url
      * @return string
      */
     public function getUrlAttribute()
