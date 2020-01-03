@@ -21,6 +21,7 @@
 
 <script>
     import MarkdownIt from 'Markdown-it';
+    import autosize from 'autosize';
     const md = new MarkdownIt();
 
     export default {
@@ -31,6 +32,14 @@
             preview() {
                 return md.render(this.body);
             }
+        },
+
+        mounted() {
+            autosize(document.querySelector('textarea')); // or this.$el.querySelector
+        },
+
+        updated() {
+            autosize(document.querySelector('textarea')); // or this.$el.querySelector
         }
     }
 </script>
