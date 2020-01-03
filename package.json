@@ -16,6 +16,7 @@
         "jquery": "^3.4.1",
         "laravel-mix": "^2.1.14",
         "lodash": "^4.17.15",
+        "markdown-it-prism": "^2.0.3",
         "popper.js": "^1.16.0",
         "vue": "^2.6.11",
         "vue-izitoast": "^1.2.1"
