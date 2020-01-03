@@ -16353,11 +16353,22 @@ module.exports.postProcess = function emphasis(state) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__hightlight__ = __webpack_require__(257);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Vote__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Vote___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Vote__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_UserInfo__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_UserInfo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_UserInfo__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_MEditor__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_MEditor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_MEditor__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__hightlight__ = __webpack_require__(257);
+
+
+
 
 /* harmony default export */ __webpack_exports__["a"] = ({
 
-    mixins: [__WEBPACK_IMPORTED_MODULE_0__hightlight__["a" /* default */]],
+    mixins: [__WEBPACK_IMPORTED_MODULE_3__hightlight__["a" /* default */]],
+
+    components: { Vote: __WEBPACK_IMPORTED_MODULE_0__components_Vote___default.a, UserInfo: __WEBPACK_IMPORTED_MODULE_1__components_UserInfo___default.a, MEditor: __WEBPACK_IMPORTED_MODULE_2__components_MEditor___default.a },
 
     data: function data() {
         return {
@@ -51675,7 +51686,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -51686,15 +51697,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Vote__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Vote___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Vote__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__UserInfo__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__UserInfo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__UserInfo__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__MEditor__ = __webpack_require__(92);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__MEditor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__MEditor__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mixins_modification__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_prismjs__ = __webpack_require__(234);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_prismjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_prismjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_modification__ = __webpack_require__(31);
 //
 //
 //
@@ -51758,9 +51761,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
-
-
 
 
 
@@ -51769,9 +51769,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     name: "Question",
     props: ['question'],
 
-    mixins: [__WEBPACK_IMPORTED_MODULE_3__mixins_modification__["a" /* default */]],
-
-    components: { Vote: __WEBPACK_IMPORTED_MODULE_0__Vote___default.a, UserInfo: __WEBPACK_IMPORTED_MODULE_1__UserInfo___default.a, MEditor: __WEBPACK_IMPORTED_MODULE_2__MEditor___default.a },
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_modification__["a" /* default */]],
 
     data: function data() {
         return {
@@ -51789,7 +51787,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return this.body.length < 10 || this.title.length < 10;
         },
         endpoint: function endpoint() {
-            return '/questions/' + this.id;
+            return "/questions/" + this.id;
+        },
+        uniqueName: function uniqueName() {
+            return "question-" + this.id;
         }
     },
 
@@ -51804,8 +51805,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         restoreFromCache: function restoreFromCache() {
             this.body = this.beforeEditCache.body;
             this.title = this.beforeEditCache.title;
-            var el = this.$refs.bodyHtml;
-            //if (el) Prism.highlightAllUnder(el); // actually not needed here!
         },
         payload: function payload() {
             return {
@@ -52665,7 +52664,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -52713,11 +52712,19 @@ md.use(__WEBPACK_IMPORTED_MODULE_1_markdown_it_prism___default.a);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "MEditor",
-    props: ['body'],
+    props: ['body', 'name'],
 
     computed: {
         preview: function preview() {
             return md.render(this.body);
+        }
+    },
+
+    methods: {
+        tabId: function tabId(tabName) {
+            var hash = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+
+            return '' + hash + tabName + this.name;
         }
     },
 
@@ -60255,37 +60262,14 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "card-body tab-content" }, [
-      _c(
-        "div",
-        { staticClass: "tab-pane active", attrs: { id: "write" } },
-        [_vm._t("default")],
-        2
-      ),
-      _vm._v(" "),
-      _c("div", {
-        staticClass: "tab-pane",
-        attrs: { id: "preview" },
-        domProps: { innerHTML: _vm._s(_vm.preview) }
-      })
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
+    _c("div", { staticClass: "card-header" }, [
       _c("ul", { staticClass: "nav nav-tabs card-header-tabs" }, [
         _c("li", { staticClass: "nav-item" }, [
           _c(
             "a",
             {
               staticClass: "nav-link active",
-              attrs: { "data-toggle": "tab", href: "#write" }
+              attrs: { "data-toggle": "tab", href: _vm.tabId("write", "#") }
             },
             [_vm._v("Write")]
           )
@@ -60296,15 +60280,31 @@ var staticRenderFns = [
             "a",
             {
               staticClass: "nav-link",
-              attrs: { "data-toggle": "tab", href: "#preview" }
+              attrs: { "data-toggle": "tab", href: _vm.tabId("preview", "#") }
             },
             [_vm._v("Preview")]
           )
         ])
       ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-body tab-content" }, [
+      _c(
+        "div",
+        { staticClass: "tab-pane active", attrs: { id: _vm.tabId("write") } },
+        [_vm._t("default")],
+        2
+      ),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "tab-pane",
+        attrs: { id: _vm.tabId("preview") },
+        domProps: { innerHTML: _vm._s(_vm.preview) }
+      })
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -60377,29 +60377,33 @@ var render = function() {
                   "div",
                   { staticClass: "form-group" },
                   [
-                    _c("m-editor", { attrs: { body: _vm.body } }, [
-                      _c("textarea", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.body,
-                            expression: "body"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { rows: "10", required: "" },
-                        domProps: { value: _vm.body },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                    _c(
+                      "m-editor",
+                      { attrs: { body: _vm.body, name: _vm.uniqueName } },
+                      [
+                        _c("textarea", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.body,
+                              expression: "body"
                             }
-                            _vm.body = $event.target.value
+                          ],
+                          staticClass: "form-control",
+                          attrs: { rows: "10", required: "" },
+                          domProps: { value: _vm.body },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.body = $event.target.value
+                            }
                           }
-                        }
-                      })
-                    ])
+                        })
+                      ]
+                    )
                   ],
                   1
                 ),
@@ -60818,7 +60822,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -60829,11 +60833,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Vote__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Vote___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Vote__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__UserInfo__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__UserInfo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__UserInfo__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_modification__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_modification__ = __webpack_require__(31);
 //
 //
 //
@@ -60865,7 +60865,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
+//
+//
 
 
 
@@ -60874,9 +60875,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     name: "Answer",
     props: ['answer'],
 
-    mixins: [__WEBPACK_IMPORTED_MODULE_2__mixins_modification__["a" /* default */]],
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_modification__["a" /* default */]],
 
-    components: { Vote: __WEBPACK_IMPORTED_MODULE_0__Vote___default.a, UserInfo: __WEBPACK_IMPORTED_MODULE_1__UserInfo___default.a },
     data: function data() {
         return {
             body: this.answer.body,
@@ -60915,7 +60915,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return this.body.length < 10;
         },
         endpoint: function endpoint() {
-            return '/questions/' + this.questionId + '/answers/' + this.id;
+            return "/questions/" + this.questionId + "/answers/" + this.id;
+        },
+        uniqueName: function uniqueName() {
+            return "answer-" + this.id;
         }
     }
 });
@@ -60935,111 +60938,146 @@ var render = function() {
       _c("vote", { attrs: { model: _vm.answer, name: "answer" } }),
       _vm._v(" "),
       _c("div", { staticClass: "media-body" }, [
-        _vm.editing
-          ? _c(
-              "form",
+        _c(
+          "form",
+          {
+            directives: [
               {
-                on: {
-                  submit: function($event) {
-                    $event.preventDefault()
-                    return _vm.update($event)
-                  }
-                }
-              },
+                name: "show",
+                rawName: "v-show",
+                value: _vm.authorize("modify", _vm.answer) && _vm.editing,
+                expression: "authorize('modify', answer) && editing"
+              }
+            ],
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.update($event)
+              }
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "form-group" },
               [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("textarea", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.body,
-                        expression: "body"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { rows: "10", required: "" },
-                    domProps: { value: _vm.body },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.body = $event.target.value
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
                 _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary",
-                    attrs: { disabled: _vm.isInvalid }
-                  },
-                  [_vm._v("Update")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-secondary",
-                    attrs: { type: "button" },
-                    on: { click: _vm.cancel }
-                  },
-                  [_vm._v("Cancel")]
-                )
-              ]
-            )
-          : _c("div", [
-              _c("div", { domProps: { innerHTML: _vm._s(_vm.bodyHtml) } }),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-4" }, [
-                  _c("div", { staticClass: "ml-auto" }, [
-                    _vm.authorize("modify", _vm.answer)
-                      ? _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-outline-info btn-sm",
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                return _vm.edit($event)
-                              }
-                            }
-                          },
-                          [_vm._v("Edit")]
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.authorize("modify", _vm.answer)
-                      ? _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-sm btn-outline-danger",
-                            on: { click: _vm.destroy }
-                          },
-                          [_vm._v("Delete")]
-                        )
-                      : _vm._e()
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-4" }),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col-4-right" },
+                  "m-editor",
+                  { attrs: { body: _vm.body, name: _vm.uniqueName } },
                   [
-                    _c("user-info", {
-                      attrs: { model: _vm.answer, label: "Answered" }
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.body,
+                          expression: "body"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { rows: "10", required: "" },
+                      domProps: { value: _vm.body },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.body = $event.target.value
+                        }
+                      }
                     })
-                  ],
-                  1
+                  ]
                 )
-              ])
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                attrs: { disabled: _vm.isInvalid }
+              },
+              [_vm._v("Update")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-secondary",
+                attrs: { type: "button" },
+                on: { click: _vm.cancel }
+              },
+              [_vm._v("Cancel")]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.editing,
+                expression: "!editing"
+              }
+            ]
+          },
+          [
+            _c("div", {
+              ref: "bodyHtml",
+              domProps: { innerHTML: _vm._s(_vm.bodyHtml) }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-4" }, [
+                _c("div", { staticClass: "ml-auto" }, [
+                  _vm.authorize("modify", _vm.answer)
+                    ? _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-info btn-sm",
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.edit($event)
+                            }
+                          }
+                        },
+                        [_vm._v("Edit")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.authorize("modify", _vm.answer)
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-sm btn-outline-danger",
+                          on: { click: _vm.destroy }
+                        },
+                        [_vm._v("Delete")]
+                      )
+                    : _vm._e()
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-4" }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-4-right" },
+                [
+                  _c("user-info", {
+                    attrs: { model: _vm.answer, label: "Answered" }
+                  })
+                ],
+                1
+              )
             ])
+          ]
+        )
       ])
     ],
     1

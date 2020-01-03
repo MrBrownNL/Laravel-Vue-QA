@@ -13,7 +13,7 @@
 
                         <div class="media-body">
                             <div class="form-group">
-                                <m-editor :body="body">
+                                <m-editor :body="body" :name="uniqueName">
                                     <textarea v-model="body" rows="10" class="form-control" required></textarea>
                                 </m-editor>
                             </div>
@@ -62,19 +62,14 @@
 </template>
 
 <script>
-    import Vote from './Vote';
-    import UserInfo from './UserInfo';
-    import MEditor from "./MEditor";
+
     import modification from "../mixins/modification";
-    import Prism from 'prismjs';
 
     export default {
         name: "Question",
         props: ['question'],
 
         mixins: [modification],
-
-        components: { Vote, UserInfo, MEditor},
 
         data() {
             return {
@@ -93,6 +88,10 @@
 
             endpoint() {
                 return `/questions/${this.id}`;
+            },
+
+            uniqueName() {
+                return `question-${this.id}`;
             }
         },
 
@@ -107,8 +106,6 @@
             restoreFromCache () {
                 this.body = this.beforeEditCache.body;
                 this.title = this.beforeEditCache.title;
-                const el = this.$refs.bodyHtml;
-                //if (el) Prism.highlightAllUnder(el); // actually not needed here!
             },
 
             payload() {
