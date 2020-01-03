@@ -1,4 +1,8 @@
+import hightlight from "./hightlight";
 export default {
+
+    mixins: [hightlight],
+
     data() {
         return {
             editing: false,
@@ -27,7 +31,8 @@ export default {
                     this.bodyHtml = data.body_html;
                     this.$toast.success(data.message,"Success", { timeout: 3000});
                     this.editing = false;
-                });
+                })
+                .then(() => this.highlight());
         },
 
         payload() {},

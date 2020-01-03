@@ -16353,7 +16353,12 @@ module.exports.postProcess = function emphasis(state) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__hightlight__ = __webpack_require__(257);
+
 /* harmony default export */ __webpack_exports__["a"] = ({
+
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__hightlight__["a" /* default */]],
+
     data: function data() {
         return {
             editing: false
@@ -16385,6 +16390,8 @@ module.exports.postProcess = function emphasis(state) {
                 _this.bodyHtml = data.body_html;
                 _this.$toast.success(data.message, "Success", { timeout: 3000 });
                 _this.editing = false;
+            }).then(function () {
+                return _this.highlight();
             });
         },
         payload: function payload() {},
@@ -52658,7 +52665,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -52714,9 +52721,6 @@ md.use(__WEBPACK_IMPORTED_MODULE_1_markdown_it_prism___default.a);
         }
     },
 
-    mounted: function mounted() {
-        __WEBPACK_IMPORTED_MODULE_2_autosize___default()(document.querySelector('textarea')); // or this.$el.querySelector
-    },
     updated: function updated() {
         __WEBPACK_IMPORTED_MODULE_2_autosize___default()(document.querySelector('textarea')); // or this.$el.querySelector
     }
@@ -67700,6 +67704,24 @@ exports.push([module.i, "code[class*=\"language-\"] a[href],\npre[class*=\"langu
 
 // exports
 
+
+/***/ }),
+/* 257 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prismjs__ = __webpack_require__(234);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prismjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_prismjs__);
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    methods: {
+        highlight: function highlight() {
+            var el = this.$refs.bodyHtml;
+            if (el) __WEBPACK_IMPORTED_MODULE_0_prismjs___default.a.highlightAllUnder(el);
+        }
+    }
+});
 
 /***/ })
 /******/ ]);

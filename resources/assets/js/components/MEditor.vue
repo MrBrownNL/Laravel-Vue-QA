@@ -37,10 +37,6 @@
             }
         },
 
-        mounted() {
-            autosize(document.querySelector('textarea')); // or this.$el.querySelector
-        },
-
         updated() {
             autosize(document.querySelector('textarea')); // or this.$el.querySelector
         }
