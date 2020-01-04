@@ -10,8 +10,10 @@
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.7.*",
+        "laravel/passport": "7.*",
         "laravel/tinker": "^1.0",
-        "mews/purifier": "~2.0"
+        "mews/purifier": "~2.0",
+        "paragonie/random_compat": "2.*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
