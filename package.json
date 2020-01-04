@@ -14,12 +14,16 @@
         "bootstrap": "^4.4.1",
         "cross-env": "^5.2.1",
         "jquery": "^3.4.1",
-        "laravel-mix": "^2.1.14",
+        "laravel-mix": "^4.0.7",
         "lodash": "^4.17.15",
         "markdown-it-prism": "^2.0.3",
         "popper.js": "^1.16.0",
+        "resolve-url-loader": "^2.3.1",
+        "sass": "^1.15.2",
+        "sass-loader": "^7.1.0",
         "vue": "^2.6.11",
-        "vue-izitoast": "^1.2.1"
+        "vue-izitoast": "^1.2.1",
+        "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.12.0",
