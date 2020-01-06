@@ -58,21 +58,35 @@ class QuestionsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Question  $question
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
-    public function update(Request $request, Question $question)
+    public function update(AskQuestionRequest $request, Question $question)
     {
-        //
-    }
+        $this->authorize("update", $question);
+
+        $question->update($request->only('title', 'body'));
+
+        return response()->json([
+            'message' => "Your question has been updated",
+            'body_html' => $question->body_html,
+            'title' => $question->title
+        ]);
+     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Question  $question
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function destroy(Question $question)
     {
-        //
-    }
+        $this->authorize("delete", $question);
+
+        $question->delete();
+
+        return response()->json([
+            'message' => "Your question has been deleted",
+        ]);
+}
 }
