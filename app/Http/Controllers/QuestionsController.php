@@ -15,7 +15,7 @@ class QuestionsController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function index()
     {
@@ -27,7 +27,7 @@ class QuestionsController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function create()
     {
@@ -41,7 +41,7 @@ class QuestionsController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function store(AskQuestionRequest $request)
     {
@@ -53,7 +53,7 @@ class QuestionsController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Question  $question
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function show(Question $question)
     {
@@ -65,7 +65,7 @@ class QuestionsController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Question  $question
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function edit(Question $question)
     {
@@ -79,7 +79,7 @@ class QuestionsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Question  $question
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function update(AskQuestionRequest $request, Question $question)
     {
@@ -102,7 +102,7 @@ class QuestionsController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Question  $question
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function destroy(Question $question)
     {
