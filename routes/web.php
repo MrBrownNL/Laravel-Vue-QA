@@ -35,6 +35,6 @@ Route::middleware('verified')->group(function() {
 
 });
 
-Route::get('/questions/{question}-{slug}', 'QuestionsController@show')->name('questions.show');
 Route::get('/questions', 'QuestionsController@index')->name('questions.index');
+Route::get('/questions/{question}', 'QuestionsController@show')->name('questions.show');
 

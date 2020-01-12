@@ -33,7 +33,7 @@ class Question extends Model
      */
     public function getUrlAttribute()
     {
-        return route("questions.show", $this->slug);
+        return route("questions.show", $this->id);
     }
 
     public function getStatusAttribute() {
