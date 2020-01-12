@@ -16,7 +16,7 @@ Route::get('/',  'QuestionsController@index');
 Auth::routes(['verify' => true]);
 
 
-Route::middleware('verified')->group(function() {
+Route::middleware('auth')->group(function() {
 
     Route::get('/home', 'HomeController@index')->name('home');
 
