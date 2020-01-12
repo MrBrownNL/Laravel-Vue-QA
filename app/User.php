@@ -91,7 +91,7 @@ class User extends Authenticatable implements MustVerifyEmail
             $data->push($item);
         }
 
-        return $data->sortByDesc('votes_count')->values()->all();
+        return $data->sortByDesc('votes_count')->values()->all(); // values() is redundant here! (Jeroen)
     }
 
     public function getAvatarAttribute() {
