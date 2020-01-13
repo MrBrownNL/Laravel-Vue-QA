@@ -9,20 +9,23 @@
         "barryvdh/laravel-ide-helper": "v2.6.6",
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.0",
-        "laravel/framework": "5.7.*",
+        "laravel/framework": "5.8.*",
+        "laravel/helpers": "^1.1",
+        "laravel/nexmo-notification-channel": "^2.3",
         "laravel/passport": "7.5.1",
+        "laravel/slack-notification-channel": "^2.0",
         "laravel/tinker": "^1.0",
         "mews/purifier": "~2.0",
         "paragonie/random_compat": "2.*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
-        "barryvdh/laravel-debugbar": "^3.1",
+        "barryvdh/laravel-debugbar": "^3.2",
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
-        "nunomaduro/collision": "^2.0",
-        "phpunit/phpunit": "^7.0"
+        "nunomaduro/collision": "^3.0",
+        "phpunit/phpunit": "^7.5"
     },
     "autoload": {
         "classmap": [
