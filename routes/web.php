@@ -12,9 +12,9 @@
 */
 
 Route::get('/',  'QuestionsController@index');
+Route::get('/questions/{question}/answers','AnswersController@index')->name('questions.answers.index');
 
 Auth::routes(['verify' => true]);
-
 
 Route::middleware('auth')->group(function() {
 
@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function() {
     Route::resource('questions', 'QuestionsController')->except('show', 'index');
 //Route::post('/questions/{question}/answers', 'AnswersController@store')->name('answers.store');
 // or use resource
-    Route::resource('questions.answers', 'AnswersController')->only(['index', 'store', 'edit', 'update', 'destroy']); // or ->except(['index', 'create', 'show'])
+    Route::resource('questions.answers', 'AnswersController')->only(['store', 'edit', 'update', 'destroy']); // or ->except(['index', 'create', 'show'])
 
     Route::post('/answers/{answer}/accept', 'AcceptAnswerController')->name('answers.accept');
 
